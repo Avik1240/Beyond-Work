@@ -1,0 +1,34 @@
+// ============================================
+// IMPORTS
+// ============================================
+@use './styles/variables';
+@use './styles/mixins';
+// Import component modules
+@use './styles/components/buttons';
+@use './styles/components/cards';
+@use './styles/components/forms';
+// ============================================
+// TAILWIND
+// ============================================
+@tailwind base; @tailwind components; @tailwind utilities;
+// ============================================
+// BASE STYLES
+// ============================================
+@layer base { * { @apply border-border; }
+	body { @apply bg-background text-text-primary antialiased; }
+	h1 { @apply text-3xl font-semibold text-text-primary; }
+	h2 { @apply text-2xl font-semibold text-text-primary; }
+	h3 { @apply text-xl font-semibold text-text-primary; }
+	h4 { @apply text-lg font-medium text-text-primary; }
+	p { @apply text-base text-text-secondary leading-relaxed; }
+	// Custom scrollbar styling::-webkit-scrollbar { width: 8px; height: 8px; }
+	::-webkit-scrollbar-track { @apply bg-background-subtle; }
+	::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+	::-webkit-scrollbar-thumb:hover { @apply bg-accent/50; }
+
+	// Custom scrollbar class for reusable components
+	.custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+	.custom-scrollbar::-webkit-scrollbar-track { @apply bg-background-subtle; }
+	.custom-scrollbar::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+	.custom-scrollbar::-webkit-scrollbar-thumb:hover { @apply bg-accent/50; }
+}

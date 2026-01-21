@@ -1,0 +1,30 @@
+// ============================================
+// CARD COMPONENTS
+// ============================================
+
+@layer components {
+  .card {
+    @apply bg-background-card border border-border rounded-card p-6 transition-colors;
+    
+    // Card variants
+    &.card-hover {
+      @apply hover:border-accent/50 cursor-pointer;
+    }
+    
+    &.card-interactive {
+      @apply hover:bg-background-subtle transition-all;
+    }
+  }
+
+  .card-header {
+    @apply p-6 border-b border-border;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  .card-footer {
+    @apply p-6 border-t border-border;
+  }
+}

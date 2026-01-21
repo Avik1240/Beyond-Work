@@ -1,0 +1,26 @@
+// ============================================
+// BUTTON COMPONENTS
+// ============================================
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2.5 bg-accent text-black rounded-lg font-medium 
+           hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent 
+           focus:ring-offset-2 focus:ring-offset-background
+           disabled:opacity-40 disabled:cursor-not-allowed transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2.5 bg-transparent text-text-primary border border-border rounded-lg font-medium
+           hover:bg-background-subtle focus:outline-none focus:ring-2 focus:ring-accent 
+           focus:ring-offset-2 focus:ring-offset-background
+           disabled:opacity-40 disabled:cursor-not-allowed transition-colors;
+  }
+
+  .btn-destructive {
+    @apply px-4 py-2.5 bg-destructive text-white rounded-lg font-medium
+           hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-destructive 
+           focus:ring-offset-2 focus:ring-offset-background
+           disabled:opacity-40 disabled:cursor-not-allowed transition-colors;
+  }
+}
