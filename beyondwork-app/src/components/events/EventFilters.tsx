@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Select } from '@/components/ui/Select';
 
 const SPORTS = ['All', 'Cricket', 'Football', 'Badminton', 'Tennis', 'Basketball', 'Volleyball', 'Yoga', 'Gym'];
 const CITIES = ['All', 'Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Chennai', 'Pune', 'Kolkata'];
@@ -36,28 +37,24 @@ export function EventFilters({ onFilterChange }: EventFiltersProps) {
       <div className="space-y-4">
         <div>
           <label className="input-label">City</label>
-          <select
+          <Select
             value={city}
-            onChange={(e) => handleCityChange(e.target.value)}
-            className="input-field"
-          >
-            {CITIES.map(c => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </select>
+            onChange={(value) => handleCityChange(value)}
+            options={CITIES.map(c => ({ value: c, label: c }))}
+            placeholder="Select city"
+            searchable={true}
+          />
         </div>
 
         <div>
           <label className="input-label">Sport/Activity</label>
-          <select
+          <Select
             value={sportType}
-            onChange={(e) => handleSportChange(e.target.value)}
-            className="input-field"
-          >
-            {SPORTS.map(s => (
-              <option key={s} value={s}>{s}</option>
-            ))}
-          </select>
+            onChange={(value) => handleSportChange(value)}
+            options={SPORTS.map(s => ({ value: s, label: s }))}
+            placeholder="Select sport"
+            searchable={true}
+          />
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '@/lib/firebase/config';
 import type { Facility } from '@/types';
+import { Select } from '@/components/ui/Select';
 
 export default function FacilitiesPage() {
   const { firebaseUser, userProfile, loading: authLoading } = useAuthStore();
@@ -100,33 +101,31 @@ export default function FacilitiesPage() {
               <label className="input-label">
                 City
               </label>
-              <select
+              <Select
                 value={selectedCity}
-                onChange={(e) => setSelectedCity(e.target.value)}
-                className="input-field w-full"
-              >
-                {cities.map(city => (
-                  <option key={city} value={city === 'All Cities' ? '' : city}>
-                    {city}
-                  </option>
-                ))}
-              </select>
+                onChange={(value) => setSelectedCity(value)}
+                options={cities.map(city => ({
+                  value: city === 'All Cities' ? '' : city,
+                  label: city
+                }))}
+                placeholder="All Cities"
+                searchable={true}
+              />
             </div>
             <div>
               <label className="input-label">
                 Sport
               </label>
-              <select
+              <Select
                 value={selectedSport}
-                onChange={(e) => setSelectedSport(e.target.value)}
-                className="input-field w-full"
-              >
-                {sports.map(sport => (
-                  <option key={sport} value={sport === 'All Sports' ? '' : sport}>
-                    {sport}
-                  </option>
-                ))}
-              </select>
+                onChange={(value) => setSelectedSport(value)}
+                options={sports.map(sport => ({
+                  value: sport === 'All Sports' ? '' : sport,
+                  label: sport
+                }))}
+                placeholder="All Sports"
+                searchable={true}
+              />
             </div>
           </div>
         </div>

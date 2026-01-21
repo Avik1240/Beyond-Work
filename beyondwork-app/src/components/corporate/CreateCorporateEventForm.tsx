@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { useRouter } from 'next/navigation';
+import { Select } from '@/components/ui/Select';
 
 const SPORTS = ['Cricket', 'Football', 'Badminton', 'Tennis', 'Basketball', 'Volleyball', 'Yoga', 'Gym'];
 const CITIES = ['Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Chennai', 'Pune', 'Kolkata'];
@@ -89,33 +90,33 @@ export function CreateCorporateEventForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Sport/Activity *</label>
-        <select
+        <label className="input-label">Sport/Activity *</label>
+        <Select
           value={formData.sportType}
-          onChange={(e) => setFormData({ ...formData, sportType: e.target.value })}
-          className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary-500"
+          onChange={(value) => setFormData({ ...formData, sportType: value })}
+          options={[
+            { value: '', label: 'Select sport' },
+            ...SPORTS.map(sport => ({ value: sport, label: sport }))
+          ]}
+          placeholder="Select sport"
+          searchable={true}
           required
-        >
-          <option value="">Select sport</option>
-          {SPORTS.map(sport => (
-            <option key={sport} value={sport}>{sport}</option>
-          ))}
-        </select>
+        />
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">City *</label>
-        <select
+        <label className="input-label">City *</label>
+        <Select
           value={formData.city}
-          onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-          className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary-500"
+          onChange={(value) => setFormData({ ...formData, city: value })}
+          options={[
+            { value: '', label: 'Select city' },
+            ...CITIES.map(city => ({ value: city, label: city }))
+          ]}
+          placeholder="Select city"
+          searchable={true}
           required
-        >
-          <option value="">Select city</option>
-          {CITIES.map(city => (
-            <option key={city} value={city}>{city}</option>
-          ))}
-        </select>
+        />
       </div>
 
       <div>

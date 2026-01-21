@@ -11,6 +11,9 @@ import Link from 'next/link';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import EmptyState from '@/components/common/EmptyState';
 import NetworkError from '@/components/common/NetworkError';
+import { Select } from '@/components/ui/Select';
+
+const CITIES = ['All', 'Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Chennai', 'Pune', 'Kolkata'];
 
 export default function CommunitiesPage() {
   const { firebaseUser, loading: authLoading } = useAuthStore();
@@ -19,8 +22,6 @@ export default function CommunitiesPage() {
   const [loading, setLoading] = useState(true);
   const [cityFilter, setCityFilter] = useState('All');
   const [error, setError] = useState(false);
-
-  const CITIES = ['All', 'Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Chennai', 'Pune', 'Kolkata'];
 
   useEffect(() => {
     if (!authLoading && !firebaseUser) {
@@ -88,15 +89,14 @@ export default function CommunitiesPage() {
 
         <div className="mb-6 card">
           <label className="input-label">Filter by City</label>
-          <select
+          <Select
             value={cityFilter}
-            onChange={(e) => setCityFilter(e.target.value)}
-            className="input-field w-full md:w-64"
-          >
-            {CITIES.map((city) => (
-              <option key={city} value={city}>{city}</option>
-            ))}
-          </select>
+            onChange={(value) => setCityFilter(value)}
+            options={CITIES.map(city => ({ value: city, label: city }))}
+            placeholder="Select city"
+            searchable={true}
+            className="w-full md:w-64"
+          />
         </div>
 
         {error ? (

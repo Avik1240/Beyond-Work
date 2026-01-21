@@ -129,19 +129,17 @@ export default function ProfileSetupPage() {
 
             <div>
               <label className="input-label">City *</label>
-              <select
-                value={formData.city}
-                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                className="input-field"
-                required
-              >
-                <option value="">Select your city</option>
-                {CITIES.map(city => (
-                  <option key={city} value={city}>{city}</option>
-                ))}
-              </select>
-            </div>
-
+          <Select
+            value={formData.city}
+            onChange={(value) => setFormData({ ...formData, city: value })}
+            options={[
+              { value: '', label: 'Select your city' },
+              ...CITIES.map(city => ({ value: city, label: city }))
+            ]}
+            placeholder="Select your city"
+            searchable={true}
+            required
+          />
             <div>
               <label className="input-label">What activities are you interested in? *</label>
               <p className="text-text-secondary text-sm mb-3">Select at least one sport or activity</p>

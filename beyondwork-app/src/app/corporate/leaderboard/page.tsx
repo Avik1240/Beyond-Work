@@ -79,7 +79,7 @@ export default function CorporateLeaderboardPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
+    <main className="min-h-screen bg-background p-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-6">
           <Link
@@ -136,25 +136,25 @@ export default function CorporateLeaderboardPage() {
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50">
+                <thead className="bg-background-subtle">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
                       Rank
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
                       Employee
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
                       Events
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
                       Score
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-background-card divide-y divide-border">
                   {leaderboard.rankings.map((entry, index) => (
-                    <tr key={entry.userId} className={index < 3 ? 'bg-yellow-50' : ''}>
+                    <tr key={entry.userId} className={index < 3 ? 'bg-accent/10' : ''}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           {index === 0 && <span className="text-2xl mr-2">🥇</span>}
