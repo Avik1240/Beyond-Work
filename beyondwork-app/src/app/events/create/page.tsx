@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { CreateEventForm } from '@/components/events/CreateEventForm';
 import Link from 'next/link';
+import { DashboardLayout } from '@/components/layout/DashboardLayout';
 
 export default function CreateEventPage() {
   const { firebaseUser, loading } = useAuthStore();
@@ -28,7 +29,7 @@ export default function CreateEventPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background p-4 md:p-8">
+    <DashboardLayout>
       <div className="max-w-2xl mx-auto">
         <div className="mb-6">
           <Link
@@ -49,6 +50,6 @@ export default function CreateEventPage() {
           <CreateEventForm />
         </div>
       </div>
-    </main>
+    </DashboardLayout>
   );
 }

@@ -8,6 +8,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '@/lib/firebase/config';
 import type { Facility } from '@/types';
 import { Select } from '@/components/ui/Select';
+import { DashboardLayout } from '@/components/layout/DashboardLayout';
 
 export default function FacilitiesPage() {
   const { firebaseUser, userProfile, loading: authLoading } = useAuthStore();
@@ -79,19 +80,11 @@ export default function FacilitiesPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-6 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-          <div>
-            <h1 className="text-3xl font-semibold text-text-primary">Sports Facilities</h1>
-            <p className="text-text-secondary mt-1">Discover venues for your sports activities</p>
-          </div>
-          <Link
-            href="/dashboard"
-            className="btn-secondary inline-block text-center"
-          >
-            Back to Dashboard
-          </Link>
+    <DashboardLayout>
+      <div>
+        <div className="mb-8">
+          <h1 className="text-3xl font-semibold text-text-primary">Sports Facilities</h1>
+          <p className="text-text-secondary mt-1">Discover venues for your sports activities</p>
         </div>
 
         {/* Filters */}
@@ -199,6 +192,6 @@ export default function FacilitiesPage() {
           </div>
         )}
       </div>
-    </main>
+    </DashboardLayout>
   );
 }

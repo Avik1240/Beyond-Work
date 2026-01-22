@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { CreateCommunityForm } from '@/components/communities/CreateCommunityForm';
 import Link from 'next/link';
+import { DashboardLayout } from '@/components/layout/DashboardLayout';
 
 export default function CreateCommunityPage() {
   const { firebaseUser, loading } = useAuthStore();
@@ -28,7 +29,7 @@ export default function CreateCommunityPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background p-4 md:p-8">
+    <DashboardLayout>
       <div className="max-w-2xl mx-auto">
         <div className="mb-6">
           <Link
@@ -49,6 +50,6 @@ export default function CreateCommunityPage() {
           <CreateCommunityForm />
         </div>
       </div>
-    </main>
+    </DashboardLayout>
   );
 }

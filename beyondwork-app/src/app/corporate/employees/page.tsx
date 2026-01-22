@@ -4,6 +4,7 @@ import { useAuthStore } from '@/lib/stores/auth-store';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { DashboardLayout } from '@/components/layout/DashboardLayout';
 
 export default function CorporateEmployeesPage() {
   const { firebaseUser, userProfile, loading: authLoading } = useAuthStore();
@@ -24,21 +25,9 @@ export default function CorporateEmployeesPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-6">
-          <Link
-            href="/corporate"
-            className="text-primary-600 hover:underline flex items-center gap-1"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Corporate Dashboard
-          </Link>
-        </div>
-
-        <div className="bg-white rounded-lg shadow p-8">
+    <DashboardLayout>
+      <div>
+        <div className="card">
           <div className="flex justify-between items-center mb-6">
             <div>
               <h1 className="text-3xl font-bold">Employee Management</h1>
@@ -76,6 +65,6 @@ export default function CorporateEmployeesPage() {
           </div>
         </div>
       </div>
-    </main>
+    </DashboardLayout>
   );
 }

@@ -7,6 +7,7 @@ import { Community } from '@/types';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase/config';
 import Link from 'next/link';
+import { DashboardLayout } from '@/components/layout/DashboardLayout';
 
 export default function CommunityDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
@@ -128,7 +129,7 @@ export default function CommunityDetailPage({ params }: { params: Promise<{ id: 
   const isCreator = community.createdBy === firebaseUser.uid;
 
   return (
-    <main className="min-h-screen bg-background p-4 md:p-8">
+    <DashboardLayout>
       <div className="max-w-4xl mx-auto">
         <div className="mb-6">
           <Link
@@ -246,6 +247,6 @@ export default function CommunityDetailPage({ params }: { params: Promise<{ id: 
           )}
         </div>
       </div>
-    </main>
+    </DashboardLayout>
   );
 }

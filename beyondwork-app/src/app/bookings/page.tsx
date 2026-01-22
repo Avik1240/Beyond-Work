@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { DashboardLayout } from '@/components/layout/DashboardLayout';
 
 interface Booking {
   id: string;
@@ -63,26 +64,23 @@ export default function BookingsPage() {
 
   if (authLoading || !firebaseUser) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Loading...</p>
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="text-center">
+          <div className="w-8 h-8 border-4 border-border border-t-accent rounded-full animate-spin mx-auto mb-3"></div>
+          <p className="text-text-secondary text-sm">Loading...</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-background p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-6 flex justify-between items-center">
+    <DashboardLayout>
+      <div>
+        <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-text-primary">My Bookings</h1>
+            <h1 className="text-3xl font-semibold text-text-primary">My Bookings</h1>
             <p className="text-text-secondary mt-1">View your facility bookings and payment status</p>
           </div>
-          <Link
-            href="/dashboard"
-            className="btn-secondary"
-          >
-            Back to Dashboard
-          </Link>
         </div>
 
         {loading ? (
@@ -168,6 +166,6 @@ export default function BookingsPage() {
           </div>
         )}
       </div>
-    </main>
+    </DashboardLayout>
   );
 }

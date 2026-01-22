@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { DashboardLayout } from '@/components/layout/DashboardLayout';
 
 interface LeaderboardEntry {
   userId: string;
@@ -79,20 +80,8 @@ export default function GlobalLeaderboardPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-6">
-          <Link
-            href="/dashboard"
-            className="text-text-secondary hover:text-accent transition-colors flex items-center gap-2 group"
-          >
-            <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Dashboard
-          </Link>
-        </div>
-
+    <DashboardLayout>
+      <div>
         <div className="card">
           <div className="mb-6">
             <h1 className="text-3xl font-semibold text-text-primary">Global Leaderboard</h1>
@@ -195,6 +184,6 @@ export default function GlobalLeaderboardPage() {
           )}
         </div>
       </div>
-    </main>
+    </DashboardLayout>
   );
 }

@@ -5,6 +5,7 @@ import { useAuthStore } from '@/lib/stores/auth-store';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import AccessDenied from '@/components/common/AccessDenied';
+import { DashboardLayout } from '@/components/layout/DashboardLayout';
 
 export default function CorporateAdminDashboard() {
   const { firebaseUser, userProfile, loading: authLoading } = useAuthStore();
@@ -45,26 +46,12 @@ export default function CorporateAdminDashboard() {
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="bg-background-card border-b border-border">
-        <div className="max-w-7xl mx-auto px-8 py-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-semibold text-text-primary">Corporate Admin Dashboard</h1>
-              <p className="text-text-secondary mt-1">{userProfile?.company}</p>
-            </div>
-            <Link
-              href="/dashboard"
-              className="btn-secondary"
-            >
-              Back to Dashboard
-            </Link>
-          </div>
+    <DashboardLayout>
+      <div>
+        <div className="mb-8">
+          <h1 className="text-3xl font-semibold text-text-primary">Corporate Admin Dashboard</h1>
+          <p className="text-text-secondary mt-1">{userProfile?.company}</p>
         </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-8 py-8">
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="card">
@@ -192,6 +179,6 @@ export default function CorporateAdminDashboard() {
           </div>
         </div>
       </div>
-    </main>
+    </DashboardLayout>
   );
 }

@@ -68,7 +68,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <div className="min-h-screen bg-background flex">
       {/* Sidebar */}
-      <aside className="w-64 bg-background-card border-r border-border flex flex-col">
+      <aside className="w-64 bg-background-card border-r border-border flex flex-col fixed left-0 top-0 h-screen">
         {/* Logo / Brand */}
         <div className="p-6 border-b border-border">
           <h2 className="text-xl font-semibold text-text-primary">ByondWork</h2>
@@ -124,7 +124,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 overflow-auto ml-64">
         <div className="max-w-content mx-auto px-8 py-6">
           {/* Corporate Admin Visual Indicator */}
           {isCorporatePage && (
