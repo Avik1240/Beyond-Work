@@ -42,16 +42,17 @@ export default function DashboardPage() {
   }, [firebaseUser, loading, router]);
 
   useEffect(() => {
-    if (firebaseUser) {
+    if (firebaseUser && !loading) {
       fetchUserStats();
       fetchMyUpcomingEvents();
       fetchRecommendedEvents();
       fetchMyCommunities();
       fetchAnalyticsData();
     }
-  }, [firebaseUser]);
+  }, [firebaseUser, loading]);
 
   const fetchUserStats = async () => {
+    if (!firebaseUser?.uid) return;
     try {
       setLoadingStats(true);
       const userId = firebaseUser?.uid;
@@ -90,6 +91,7 @@ export default function DashboardPage() {
   };
 
   const fetchMyUpcomingEvents = async () => {
+    if (!firebaseUser?.uid) return;
     try {
       setLoadingEvents(true);
       const userId = firebaseUser?.uid;
@@ -121,6 +123,7 @@ export default function DashboardPage() {
   };
 
   const fetchRecommendedEvents = async () => {
+    if (!firebaseUser?.uid) return;
     try {
       // Get events in user's city or all events, filter client-side
       let eventsQuery;
@@ -156,6 +159,7 @@ export default function DashboardPage() {
   };
 
   const fetchMyCommunities = async () => {
+    if (!firebaseUser?.uid) return;
     try {
       setLoadingCommunities(true);
       const userId = firebaseUser?.uid;
@@ -183,6 +187,7 @@ export default function DashboardPage() {
   };
 
   const fetchAnalyticsData = async () => {
+    if (!firebaseUser?.uid) return;
     try {
       const userId = firebaseUser?.uid;
       
