@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByondWork - Elevate Your Workflow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #0f1528;
+            --bg-card: #141b2d;
+            --accent-green: #a8e03a;
+            --accent-green-dark: #8bc329;
+            --accent-blue: #38bdf8;
+            --text-white: #ffffff;
+            --text-gray: #94a3b8;
+            --text-light: #cbd5e1;
+            --border-color: rgba(255,255,255,0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0d1324 50%, var(--bg-primary) 100%);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 24px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 16px 60px;
+        }
+
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-white);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-white);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .login-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 40px;
+            position: relative;
+            width: 100%;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: var(--accent-blue);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .login-header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-header p {
+            font-size: 16px;
+            color: var(--text-gray);
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ===== LOGIN CARD ===== */
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 48px;
+            width: 100%;
+            max-width: 540px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.8s ease 0.2s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(168, 224, 58, 0.3), transparent);
+        }
+
+        /* LinkedIn Button */
+        .btn-linkedin-large {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-dark) 100%);
+            color: var(--bg-primary);
+            border: none;
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(168, 224, 58, 0.3);
+        }
+
+        .btn-linkedin-large:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(168, 224, 58, 0.4);
+        }
+
+        .btn-linkedin-large i {
+            font-size: 18px;
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 28px 0;
+            color: var(--text-gray);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .divider span {
+            padding: 0 16px;
+        }
+
+        /* Form Fields */
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px 16px;
+            color: var(--text-white);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-input::placeholder {
+            color: var(--text-gray);
+        }
+
+        .form-input:focus {
+            border-color: rgba(168, 224, 58, 0.3);
+            background: rgba(255,255,255,0.05);
+            box-shadow: 0 0 0 3px rgba(168, 224, 58, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .forgot-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-link:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            width: 100%;
+            background: transparent;
+            color: var(--text-white);
+            border: 1px solid var(--border-color);
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+
+        .btn-submit:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Membership Link */
+        .membership-text {
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .membership-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .membership-link:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+
+        /* ===== TRUSTED BY SECTION ===== */
+        .trusted-section {
+            margin-top: 48px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .trusted-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .company-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .company-logo {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-gray);
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .company-logo:hover {
+            color: var(--text-white);
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            width: 100%;
+            padding: 24px 60px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-white);
+        }
+
+        .footer-copy {
+            color: var(--text-gray);
+            font-size: 13px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Background Particles */
+        .particles {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(168, 224, 58, 0.3);
+            border-radius: 50%;
+            animation: particleFloat linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .login-container {
+                padding: 80px 16px 30px;
+            }
+
+            .login-header {
+                margin-bottom: 24px;
+            }
+
+            .login-header h1 {
+                font-size: 32px;
+            }
+
+            .login-header p {
+                font-size: 14px;
+            }
+
+            .login-card {
+                padding: 32px 24px;
+            }
+
+            .company-logos {
+                gap: 24px;
+            }
+
+            .trusted-section {
+                margin-top: 32px;
+            }
+
+            footer {
+                padding: 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Input Autofill Styling */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-text-fill-color: var(--text-white);
+            -webkit-box-shadow: 0 0 0px 1000px var(--bg-card) inset;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-logo">ByondWork</div>
+        <ul class="nav-links">
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="login-container">
+        <div class="login-header">
+            <div class="badge">Elite Performance Hub</div>
+            <h1>Elevate Your Workflow.</h1>
+            <p>Connect your professional profile to join the ByondWork community.</p>
+        </div>
+
+        <div class="login-card">
+            <!-- LinkedIn Sign In -->
+            <button class="btn-linkedin-large">
+                <i class="fab fa-linkedin-in"></i>
+                Sign in with LinkedIn
+            </button>
+
+            <!-- Divider -->
+            <div class="divider">
+                <span>Or use credentials</span>
+            </div>
+
+            <!-- Form -->
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Professional Email</label>
+                    <input 
+                        type="email" 
+                        class="form-input" 
+                        placeholder="name@company.com" 
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <label class="form-label">Access Key</label>
+                        <a href="#" class="forgot-link">Forgot Access?</a>
+                    </div>
+                    <input 
+                        type="password" 
+                        class="form-input" 
+                        placeholder="··········" 
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Continue to Dashboard
+                </button>
+            </form>
+
+            <p class="membership-text">
+                New here? <a href="#" class="membership-link">Apply for membership</a>
+            </p>
+        </div>
+
+        <!-- Trusted By Section -->
+        <div class="trusted-section">
+            <div class="trusted-label">Trusted by executives from</div>
+            <div class="company-logos">
+                <div class="company-logo">TECHCORE</div>
+                <div class="company-logo">VANTAGE</div>
+                <div class="company-logo">ELITE.SYS</div>
+                <div class="company-logo">GLOBAL_X</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">ByondWork</div>
+            <ul class="footer-links">
+                <li><a href="#">Facilities</a></li>
+                <li><a href="#">Corporate Partners</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Support</a></li>
+            </ul>
+            <div class="footer-copy">© 2024 ByondWork. High-Performance Wellness.</div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== PARTICLE SYSTEM =====
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const count = 25;
+            
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                particle.style.animationDelay = (Math.random() * 10) + 's';
+                particle.style.width = (Math.random() * 3 + 1) + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                container.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // ===== FORM SUBMISSION =====
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            // Simulate login
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Authenticating...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                submitBtn.textContent = '✓ Success! Redirecting...';
+                submitBtn.style.background = 'rgba(168, 224, 58, 0.2)';
+                submitBtn.style.borderColor = 'rgba(168, 224, 58, 0.5)';
+                
+                setTimeout(() => {
+                    // Reset for demo
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.background = 'transparent';
+                    submitBtn.style.borderColor = '';
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // ===== INPUT FOCUS EFFECTS =====
+        const inputs = document.querySelectorAll('.form-input');
+        
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+                this.parentElement.style.transition = 'transform 0.3s ease';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+
+        // ===== LINKEDIN BUTTON =====
+        document.querySelector('.btn-linkedin-large').addEventListener('click', function() {
+            const originalHTML = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Connecting...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-check"></i> Connected!';
+                this.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalHTML;
+                    this.disabled = false;
+                    this.style.background = '';
+                }, 2000);
+            }, 1500);
+        });
+
+        // ===== COMPANY LOGO HOVER EFFECT =====
+        document.querySelectorAll('.company-logo').forEach(logo => {
+            logo.addEventListener('mouseenter', function() {
+                this.style.textShadow = '0 0 20px rgba(168, 224, 58, 0.5)';
+            });
+            
+            logo.addEventListener('mouseleave', function() {
+                this.style.textShadow = 'none';
+            });
+        });
+
+        // ===== SMOOTH REVEAL ON LOAD =====
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>

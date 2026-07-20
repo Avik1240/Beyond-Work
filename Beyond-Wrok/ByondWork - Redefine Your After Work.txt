@@ -1,0 +1,78 @@
+ByondWork - Redefine Your After Work Hours
+
+Problem
+In today’s fast-paced corporate world, especially in metro cities, professionals often:
+Struggle to productively spend their after-work hours.
+Fall into unproductive habits (OTT, social media), leading to physical inactivity and social isolation.
+Lack access to people or infrastructure to engage in sports, wellness, or recreational activities.
+
+ Solution — ByondWork
+A community-based sports and wellness platform exclusively designed for working professionals to:
+Discover and book sports & recreational activities.
+Create or join events like cricket matches, pickleball games, or wellness workshops.
+Network through play — connect with like-minded professionals on and off the field.
+
+Key Features
+LinkedIn Integration for seamless onboarding and professional networking (Subject to research).
+Facility & Event Booking (individual or group) with transparent cost splitting in the platform.
+Community Groups for building local interest-based networks.
+Leaderboards & Player Profiles(Corporate and GLobal Leaderboards) to track performance and promote friendly competition.
+Training and Coaching: Book training courses including swimming, strength training, pickleball etc.
+Wellness Workshops:  Book wellness workshops like zumba classes,yoga class, recreational workshops etc.
+Corporate Events for companies to manage and organize internal employee events.
+
+Target Audience
+Corporate professionals (especially 22–40 yrs) in metro cities.
+HR departments and corporate wellness managers.
+Young working population living away from home.
+
+ Why Now?
+Growing focus on work-life balance and employee wellness.
+Rise of recreational sports culture among urban professionals.
+Increasing demand for community-driven offline engagement in a post-remote work era.
+
+Revenue Model
+Commission on facility bookings and event fees.
+Premium memberships (exclusive events, leaderboards, analytics).
+B2B partnerships with companies for employee wellness programs.
+Sponsored events and brand tie-ups in sports & wellness space.
+
+ Vision
+To become India’s leading after-work engagement platform, blending health, community, and professional networking — one game at a time.
+
+
+✅ Comparisons – What Exists Today
+Platform
+What they do
+What ByondWork does differently
+Mindelphi, Truworth, Healthify Corporate, StepSetGo, Fitze, All In Running, Hudle, Halofit
+Provide employee wellness programs, coaching, gamified challenges, step tracking, nutrition, mental health—mostly B2B for HR teams sportiwe.com+1wired.com+1myhalofit.com+2corporate.stepsetgo.com+2allinrunning.com+2
+Focused on health metrics, wellness reminders, less on live venue bookings, sports events, or professional networking via LinkedIn
+Fitistan, FindYourFit, SportiWe
+Offer community sports events like marathons, pickleball/ padel tournaments, fitness retreats
+Events are one-off and general-public; lacking corporate-only networking, integrated booking, leaderboards, or LinkedIn sign-on features
+Lunchclub, Meetup, Fever, SeatGeek, Zoonga
+Facilitate professional networking, group events, public ticketing, and one-off experiences
+Don’t focus on sports or wellness, or booking venues/facilities tailored to corporate after-hours wellness
+
+
+🧩 Unique Opportunity for ByondWork
+Niche focus: exclusively on sports & recreational wellness for corporate professionals.
+
+
+Deep integration: booking, event creation, social/networking, performance tracking, and leaderboards—all in one.
+
+
+LinkedIn-powered onboarding and community invites ensure professional relevance and authentic connections.
+
+
+HR-friendly tools: companies can manage group bookings, internal tournaments, wellness themes—straight from the app.
+
+
+
+
+
+
+Journey:
+1. Create platform prototypes and on ground experience in parallel.
+2. Target HR and corporates for organizing their events.Through which their employees will get onboarded to our app and a community will be formed.
